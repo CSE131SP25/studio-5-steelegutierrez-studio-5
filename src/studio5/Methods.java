@@ -1,6 +1,7 @@
 package studio5;
 
 import edu.princeton.cs.introcs.StdDraw;
+import java.awt.Color;
 
 public class Methods {
 
@@ -14,8 +15,10 @@ public class Methods {
 	 * @return the Euclidean distance between (x1,y1) and (x2,y2)
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
-		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
+		
+		double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
 		
 		return distance;
 	}
@@ -35,15 +38,24 @@ public class Methods {
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
 
-		
+		Color secondCircle = new Color(0, 109, 219);
+		StdDraw.setPenColor(secondCircle);
+		StdDraw.filledCircle(x, y, radius * (3/4.0));
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
 
-		
+		Color thirdCircle = new Color(146, 0, 0);
+		StdDraw.setPenColor(thirdCircle);
+		StdDraw.filledCircle(x, y, radius * (1/2.0));
+
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
+
+		Color fourthCircle = new Color(255, 255, 109);
+		StdDraw.setPenColor(fourthCircle);
+		StdDraw.filledCircle(x, y, radius * (1/4.0));
 
 		
 	}
@@ -76,6 +88,10 @@ public class Methods {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
 		
+		for(int i = 0; i < values.length; i++) {
+			sum += values[i];
+		}
+		
 		return sum;
 	}
 
@@ -87,7 +103,10 @@ public class Methods {
 	 * @return and array of size that's filled with value
 	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int[] values = new int[length]; // FIXME: Create an array of the appropriate size
+		for(int i = 0; i < values.length; i++) {
+			values[i] = value;
+		}
 		// TODO: Finish this method
 
 		
@@ -97,6 +116,23 @@ public class Methods {
 
 	// TODO: Create an arrayMean method which accepts an int array of values parameter.
 	// TODO: Create a JavaDoc comment for the arrayMean method.
+	
+	/**
+	 * 
+	 * @param values
+	 * @return
+	 */
+	public static double arrayMean(int[] values) {
+		
+		int sum = 0;
+		double mean = 0;
+		for(int i = 0; i < values.length; i++) {
+			sum += values[i];
+		}
+		mean = sum / (values.length);
+		
+		return mean;
+	}
 
 	
 }
